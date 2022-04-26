@@ -107,7 +107,7 @@ func main() {
 	l := NewLife(40, 15)
 	for {
 		l.Step()
-		fmt.Print("\x0c", l) // Clear screen and print field.
+		fmt.Print("\033c", l) // Clear screen and print field.
 		time.Sleep(time.Second / 30)
 	}
 }

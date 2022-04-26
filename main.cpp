@@ -97,6 +97,12 @@ public:
     this->h = h;
   }
 
+  ~Life()
+  {
+    delete this->a;
+    delete this->b;
+  }
+
   // Step advances the game by one instant, recomputing and updating all cells.
   void Step()
   {
@@ -141,7 +147,7 @@ int main()
   while (true)
   {
     l->Step();
-    std::cout << "\x0c" << l->String();
+    std::cout << "\033c" << l->String();
     std::cout.flush();
     std::this_thread::sleep_for(std::chrono::milliseconds(1000) / 30);
   }
